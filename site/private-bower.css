@@ -1,11 +1,11 @@
 body, html {
     height: 100%;
-
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
 }
 
 body {
-    overflow-y: scroll;
+    background-color: #f0fafa;
 }
 
 #wrap {
@@ -49,22 +49,58 @@ footer h4 a {
 
 #logo {
     position: absolute;
-    height: 200px;
-    width: 200px;
+    height: 8em;
+    width: 11em;
+    left: 1em;
+    top: 1.25em;
 }
 
-.btn-warning {
-    background-color: #1695A3;
-    border-color: #16818f;
+.delete-icon, .delete-icon:hover {
+    outline: none !important;
+    background: transparent !important;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    margin-top: 2px;
+    color: #f0fafa;
+    transition: color 0.5s ease;
 }
 
-.btn-warning:hover {
-    background-color: #16b3c1;
-    border-color: #1692a0;
+.delete-icon:hover {
+    color: #e98400;
+}
+
+.btn {
+    transition: all 0.5s ease;
+}
+
+.btn-primary, .btn-warning {
+    background-color: #4E7DC4 !important;
+    border-color: #4E7DC4 !important;
+}
+
+.btn-primary:hover, .btn-warning:hover {
+    background-color: #3564ac !important;
+    border-color: #3564ac !important;
+}
+
+.bg-danger {
+    background-color: transparent;
+    border: 1px solid #F44231;
+    color: #F44231;
+}
+
+.bg-warning, .bg-info {
+    background-color: transparent;
+    border: 1px solid #F8A02B;
 }
 
 .bg-gray {
     background-color: #777;
+}
+
+.glyphicon-info-sign {
+    color: #F8A02B;
 }
 
 .info-box {
@@ -77,31 +113,40 @@ footer h4 a {
 }
 
 .jumbotron {
-    background-color: #F4C53B;
+    background-color: #000000;
     padding-top: 30px;
     padding-bottom: 15px;
+    z-index: 2;
+    position: sticky;
+    top: 0vw;
+    width: 100%;
 }
 
 .jumbotron h1 {
     margin-bottom: 20px;
 }
 
-.jumbotron h1, h2 {
-    color: #ffffff;
+.jumbotron h1, h2, h4 {
+    color: #f0fafa;
 
     text-shadow: 0 4px 0 rgba(0, 0, 0, .1);
 
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
 
     margin-top: 10px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 3px;
 }
 
 .glyphicon-search {
     position: absolute;
 
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 6px;
     color: #444;
 }
 
@@ -124,14 +169,15 @@ footer h4 a {
 }
 
 .package {
-    max-width: 750px;
+    max-width: 85vw;
     margin: 10px auto;
 
     border-radius: 5px;
-    padding: 20px;
+    padding: 0.5em 2em;
     box-sizing: border-box;
+    box-shadow: 2px 2px #e9e9eb;
 
-    background-color: #f7f7f9;
+    background-color: #000000;
     border: 1px solid #e1e1e8;
     
     -webkit-transition: all 2s;
@@ -182,11 +228,85 @@ footer h4 a {
 
     min-width: 400px;
 
-    margin-top: 10%;
+    margin-top: 33vh;
 
     border: 3px solid #777;
     border-radius: 5px;
-    background-color: #F4C53B;
+    background-color: #000000;
 
     padding: 20px;
+}
+
+.token .dimmer .inner {
+    margin-top: 37vh;
+}
+
+.text-primary {
+    color: #f0fafa;
+    line-height: 1.5em;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.text-primary:hover {
+    color:  #4E7DC4;
+    transition: color 0.5s ease;
+}
+
+.text-info {
+    color: #7F7F7F;
+}
+
+.text-danger {
+    color: #F44231;
+}
+
+td {
+    border: none !important;
+    color: #f0fafa;
+    padding: 8px 5px 2px 5px !important;
+}
+
+.label {
+    color: #4E7DC4;
+}
+
+.header-row {
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+.glyphicon-chevron-up, .glyphicon-chevron-down {
+    position: absolute;
+    transition: all ease;
+    font-size: 10pt;
+    top: 12px;
+}
+
+.form-control {
+    font-size: 16px;
+    padding-top: 8px;
+}
+
+.btn-style {
+    font-size: 15px !important;
+    padding: 9px 12px 6px 12px !important;
+}
+
+@media all and (max-width: 900px) {
+    pre {
+        background-color: #f0fafa;
+        width: 65vw;
+        height: auto;
+        max-height: 40vw;
+    }
+}
+
+@media all and (min-width: 900px) {
+    pre {
+        background-color: #f0fafa;
+        width: 100%;
+        height: auto;
+        max-height: 20vw;
+    }
 }

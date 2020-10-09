@@ -9,6 +9,7 @@ angular.module('PrivateBower')
             addPackage: _addPackage,
             addPackageButtonClick: _addPackageButtonClick,
             cancelAddPackageClick: _cancelAddPackageClick,
+            validateDetails: _validateDetails,
 
             packageToRemove: null,
             removePackageError: null,
@@ -28,18 +29,30 @@ angular.module('PrivateBower')
         function _getPackages() {
             $http.get('packages')
                 .success(function(packages) {
+                    let compare = function(v1, v2) {
+                        const name1 = v1.name.toUpperCase();
+                        const name2 = v2.name.toUpperCase();
+                        let comparison = 0;
+                        if (name1 > name2) {
+                          comparison = 1;
+                        } else if (name1 < name2) {
+                          comparison = -1;
+                        }
+                        return comparison;
+                    };
                     self.packages = packages.map(function(pack) {
                         pack.siteUrl = pack.url.replace('git://', 'https://');
 
                         return pack;
-                    });
+                    }).sort(compare);
+
                 })
                 .error(function(error) {
                     self.error = true;
                 });
         }
 
-        function _addPackageButtonClick() {
+        function _addPackageButtonClick(...args) {
             self.addPackageDialogOpened = true;
         }
 
@@ -100,5 +113,15 @@ angular.module('PrivateBower')
                         bowerPackage.detailsError = true;
                     })
             }
+        }
+
+        function _validateDetails(...args) {
+            let enableButton = true;
+            args.forEach((arg) => {
+               if (!arg) {
+                       enableButton = false;
+               }
+            });
+            return !enableButton;
         }
     });
